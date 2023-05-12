@@ -1,9 +1,11 @@
 group_num=$1
 
-#unzip dataset for dataset/student/ & rename voice_text.txt
+#1.Unzip dataset on "dataset/student/" directory.
+#2.Rename "voice_text.txt" because it has a problem that "voice_text.txt" file name will chage to "voice_text.txt.txt" when execute unzip command. 
+# we don't know why it's problem will happen
 
 unzip dataset/student/${group_num}_voice_data.zip -d dataset/student/
-mv dataset/student/${group_num}_voice_data/voice_text.txt.txt dataset/student/${group_num}_voice_data/voice_text.txt
+mv dataset/student/${group_num}_voice_data/voice_text.txt.* dataset/student/${group_num}_voice_data/voice_text.txt
 
 #run preprocess including data spliting,feature value extraction and create token list for finetuning
 ./run.sh \
