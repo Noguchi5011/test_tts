@@ -35,3 +35,7 @@ group_num=$1
     cp exp/${group_num}/train.log log/${group_num}/${group_num}/
     mv log/${group_num}/${group_num}/train.log log/${group_num}/${group_num}/${group_num}_train.log
 
+# copy log files for /home/{user_name}/log
+mkdir -p ~/log
+mkdir -p ~/log/${group_num}  
+cp -r log/${group_num}/* ~/log/${group_num}/
