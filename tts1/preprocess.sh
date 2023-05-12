@@ -1,5 +1,10 @@
 group_num=$1
 
+#unzip dataset for dataset/student/ & rename voice_text.txt
+
+unzip dataset/student/${group_num}_voice_data.zip -d dataset/student/
+mv dataset/student/${group_num}_voice_data/voice_text.txt.txt dataset/student/${group_num}_voice_data/voice_text.txt
+
 #run preprocess including data spliting,feature value extraction and create token list for finetuning
 ./run.sh \
     --stage 1 \
