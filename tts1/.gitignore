@@ -1,0 +1,17 @@
+data/*
+!data/.gitkeep
+dataset/*
+!dataset/.gitkeep
+!dataset/student
+dataset/student/*
+!dataset/student/.gitkeep
+downloads/*
+!data/.gitkeep
+dump/*
+!dump/.gitkeep
+exp/*
+!exp/.gitkeep
+gen_wav/*
+!gen_wav/.gitkeep
+log/*
+!log/.gitkeep

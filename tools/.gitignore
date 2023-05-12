@@ -1,0 +1,3 @@
+activate_python.sh
+/venv/*
+!/venv/.gitkeep
