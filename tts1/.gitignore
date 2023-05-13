@@ -15,3 +15,7 @@ gen_wav/*
 !gen_wav/.gitkeep
 log/*
 !log/.gitkeep
+zip_files/*
+!zip_files/.gitkeep
+
+__pycache__/
