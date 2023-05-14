@@ -35,7 +35,21 @@ mkdir -p log/${group_num}/${group_num}
 cp exp/${group_num}/train.log log/${group_num}/${group_num}/
 mv log/${group_num}/${group_num}/train.log log/${group_num}/${group_num}/${group_num}_train.log
 
+#export csv file from log files
+mkdir -p csv/${group_num}/
+mkdir -p csv/${group_num}/tsukuyomi
+mkdir -p csv/${group_num}/noguchi
+mkdir -p csv/${group_num}/JVS010
+mkdir -p csv/${group_num}/${group_num}
+
+python3 extruct_loss_value.py ${group_num}
+
 # copy log files for /home/{user_name}/log
 mkdir -p ~/log
-mkdir -p ~/log/${group_num}  
+mkdir -p ~/log/${group_num}
 cp -r log/${group_num}/* ~/log/${group_num}/
+
+# copy csv files for /home/{user_name}/csv
+mkdir -p ~/csv
+mkdir -p ~/csv/${group_num}
+cp -r csv/${group_num}/* ~/csv/${group_num}/
