@@ -21,19 +21,19 @@ group_num=$1
 
 #export some log files
 
-    mkdir -p log/${group_num}/
-    mkdir -p log/${group_num}/tsukuyomi
-    cp exp/tsukuyomi/train.log log/${group_num}/tsukuyomi/
-    mv log/${group_num}/tsukuyomi/train.log log/${group_num}/tsukuyomi/tsukuyomi_train.log
-    mkdir -p log/${group_num}/noguchi
-    cp exp/noguchi/train.log log/${group_num}/noguchi/
-    mv log/${group_num}/noguchi/train.log log/${group_num}/noguchi/noguchi_train.log
-    mkdir -p log/${group_num}/JVS010
-    cp exp/JVS010/train.log log/${group_num}/JVS010/
-    mv log/${group_num}/JVS010/train.log log/${group_num}/JVS010/JVS010_train.log
-    mkdir -p log/${group_num}/${group_num}
-    cp exp/${group_num}/train.log log/${group_num}/${group_num}/
-    mv log/${group_num}/${group_num}/train.log log/${group_num}/${group_num}/${group_num}_train.log
+mkdir -p log/${group_num}/
+mkdir -p log/${group_num}/tsukuyomi
+cp exp/tsukuyomi/train.log log/${group_num}/tsukuyomi/
+mv log/${group_num}/tsukuyomi/train.log log/${group_num}/tsukuyomi/tsukuyomi_train.log
+mkdir -p log/${group_num}/noguchi
+cp exp/noguchi/train.log log/${group_num}/noguchi/
+mv log/${group_num}/noguchi/train.log log/${group_num}/noguchi/noguchi_train.log
+mkdir -p log/${group_num}/JVS010
+cp exp/JVS010/train.log log/${group_num}/JVS010/
+mv log/${group_num}/JVS010/train.log log/${group_num}/JVS010/JVS010_train.log
+mkdir -p log/${group_num}/${group_num}
+cp exp/${group_num}/train.log log/${group_num}/${group_num}/
+mv log/${group_num}/${group_num}/train.log log/${group_num}/${group_num}/${group_num}_train.log
 
 # copy log files for /home/{user_name}/log
 mkdir -p ~/log
