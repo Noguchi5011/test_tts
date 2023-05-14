@@ -885,6 +885,7 @@ if ! "${skip_train}"; then
 
         # log "TTS training started... log: '${log_dir}/train.log'"
         log "TTS training started... log: '${tts_exp}/train.log'"
+
         if echo "${cuda_cmd}" | grep -e queue.pl -e queue-freegpu.pl &> /dev/null; then
             # SGE can't include "/" in a job name
             # jobname="$(basename ${log_dir})"
@@ -893,11 +894,24 @@ if ! "${skip_train}"; then
             # jobname="${log_dir}/train.log"
             jobname="${tts_exp}/train.log"
         fi
+
+	pwd
+	
+	if [ ! -e "${tts_exp}/train.log" ]; then
+		log "not generate train log file yet "
+                save_log_file="train.log"
+        else 
+		log "already save train log file "
+                save_log_file="backup.log"
+        fi
+
+	log "TTS training saving file... log: '${save_log_file}'"
+
         # shellcheck disable=SC2086
         # --log "${log_dir}"/train_${group_num}.log \
         ${python} -m espnet2.bin.launch \
             --cmd "${cuda_cmd} --name ${jobname}" \
-            --log "${tts_exp}"/train.log \
+            --log "${tts_exp}"/"${save_log_file}" \
             --ngpu "${ngpu}" \
             --num_nodes "${num_nodes}" \
             --init_file_prefix "${tts_exp}"/.dist_init_ \
