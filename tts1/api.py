@@ -72,15 +72,16 @@ def finetuning(group_name: str):
             content={"message": f'Review your group name : {group_name}. Defferent format.'} )
 
     ## Run preprocess.sh
-    pp_res = subprocess.run(["preprocess.sh", group_name], stdout=subprocess.PIPE, text=True)
+    pp_res = subprocess.run(["bash", "preprocess.sh", group_name], stdout=subprocess.PIPE, text=True)
     
     ## Run finetuning.sh
-    ft_res = subprocess.run(["finetuning.sh", group_name], stdout=subprocess.PIPE, text=True)
+    ft_res = subprocess.run(["bash", "finetuning.sh", group_name], stdout=subprocess.PIPE, text=True)
     
     ## Compress some train log files
-    comp_res = subprocess.run(["compression.sh", group_name], stdout=subprocess.PIPE, text=True) 
+    comp_res = subprocess.run(["bash", "compression.sh", group_name], stdout=subprocess.PIPE, text=True) 
 
-    zip_file_path = "log/zip_files/"
+    #zip_file_path = "log/zip_files/"
+    zip_file_path = f"csv/zip_files/{group_name}.zip"
     zip_file_name = f"{group_name}.zip"
 
     return FileResponse(path=zip_file_path, filename=zip_file_name)
